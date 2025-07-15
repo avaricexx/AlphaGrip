@@ -70,12 +70,18 @@
       <div class="strength-card-modal">
         <div class="card-section card-left">
           <div class="card-emblem-glow"></div>
-          <img src="assets/images/gorilla.png" alt="Strength Emblem" class="card-emblem">
+          <img src="assets/images/gorilla.png" alt="Strength Emblem" class="card-emblem" id="cardEmblem">
         </div>
         <div class="card-section card-middle">
-          <div class="card-score">60 kg</div>
-          <div class="card-percentile">You are stronger than 82% of people your age</div>
-          <div class="card-strength-score">Strength Score: 85/100</div>
+          <div class="card-score" id="cardScore">0 kg</div>
+          <div class="card-percentile" id="cardPercentile">You are stronger than 0% of people your age</div>
+          <div class="card-strength-bar-container">
+            <div class="card-strength-bar-label">Strength Score</div>
+            <div class="card-strength-bar-bg">
+              <div class="card-strength-bar-fill" id="cardStrengthBar"></div>
+            </div>
+            <div class="card-strength-bar-value" id="cardStrengthBarValue">0/100</div>
+          </div>
         </div>
         <div class="card-section card-right">
           <div class="card-block">
@@ -105,6 +111,8 @@
       </div>
     </div>
   </div>
+
+  <div id="toast" class="toast" style="display:none;"></div>
 
   <script src="js/main.js"></script>
 </body>

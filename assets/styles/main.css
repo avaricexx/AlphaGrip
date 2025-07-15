@@ -417,17 +417,19 @@ h1 {
   padding-left: 2.5rem;
   padding-right: 1.5rem;
   position: relative;
+  min-width: 0;
 }
 
 .card-emblem {
-  max-width: 12rem;
-  max-height: 18rem;
+  max-width: 18rem;
+  max-height: 28rem;
   width: auto;
   height: auto;
   object-fit: contain;
   margin: 0 auto;
   display: block;
   z-index: 2;
+  transition: max-width 0.4s cubic-bezier(0.4,0,0.2,1), max-height 0.4s cubic-bezier(0.4,0,0.2,1);
 }
 
 .card-emblem-glow {
@@ -598,6 +600,66 @@ h1 {
 #grip[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.card-strength-bar-container {
+  width: 100%;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.card-strength-bar-label {
+  font-size: var(--font-xs);
+  color: var(--color-muted);
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+.card-strength-bar-bg {
+  width: 12rem;
+  height: 1.2rem;
+  background: rgba(255,255,255,0.08);
+  border-radius: 0.7rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 1px 4px rgba(33,150,243,0.08);
+}
+.card-strength-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-success) 0%, var(--color-primary) 100%);
+  border-radius: 0.7rem;
+  transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+.card-strength-bar-value {
+  font-size: var(--font-xs);
+  color: var(--color-success);
+  font-weight: 600;
+  margin-top: 0.1rem;
+}
+
+/* Toast popup */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 2.5rem;
+  transform: translateX(-50%);
+  background: rgba(24,24,32,0.98);
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 99999;
+  transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 @media (max-width: 600px) {
